@@ -87,6 +87,11 @@ public class ZooManagement {
         System.out.println(dolphin);
         System.out.println(penguin);
 
+        aquaticAnimal.swim();
+        dolphin.swim();
+        penguin.swim();
+
+
     }
 }
 
