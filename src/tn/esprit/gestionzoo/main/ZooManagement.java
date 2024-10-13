@@ -3,6 +3,11 @@ package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.Animal;
 import tn.esprit.gestionzoo.entities.Zoo;
 
+import tn.esprit.gestionzoo.entities.Dolphin;
+import tn.esprit.gestionzoo.entities.Penguin;
+import tn.esprit.gestionzoo.entities.Aquatic;
+import tn.esprit.gestionzoo.entities.Terrestrial;
+
 public class ZooManagement {
 
 
@@ -67,9 +72,20 @@ public class ZooManagement {
 // Comparing zoos and displaying the largest zoo
         Zoo largestZoo = Zoo.comparerZoo(myZoo1, myZoo2);
         System.out.println("\n=== Comparaison des zoos ===");
-        System.out.println("Le zoo avec le plus d'animaux est : " + largestZoo.getName());
+        System.out.println("Le zoo avec le plus d'animaux est : " + largestZoo.getName()+"\n");
+
+        System.out.println("===================== Partie 2 =================================\n");
+
+        Aquatic aquaticAnimal = new Aquatic("Cetacea", "Baleine", 15, true, "Océan");
+        Terrestrial terrestrialAnimal = new Terrestrial("Mammifère", "Lion", 8, true, 4);
+        Dolphin dolphin = new Dolphin("Cetacea", "Dauphin", 10, true, "Océan", 25.5f);
+        Penguin penguin = new Penguin("Spheniscidae", "Pingouin", 5, false, "Antarctique", 30.0f);
 
 
+        System.out.println(aquaticAnimal);
+        System.out.println(terrestrialAnimal);
+        System.out.println(dolphin);
+        System.out.println(penguin);
 
     }
 }
