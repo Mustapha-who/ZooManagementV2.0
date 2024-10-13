@@ -7,6 +7,7 @@ public class ZooManagement {
         // Creating an animal (lion)
         Animal lion = new Animal("Felidae", "Lion", 5, true);
 
+
         // Creating a zoo
         Zoo myZoo = new Zoo("just_a_zoo", "tunisia");
 
@@ -56,13 +57,14 @@ public class ZooManagement {
         System.out.println("\n=== Addition d'un nouveau animal ===");
         Animal test = new Animal("Equidae", "test", 3, false);
         myZoo.addAnimal(test);
+        myZoo2.addAnimal(test);
         System.out.println("\n=== Le resultat apres l'addition un nouveau animal ===");
         myZoo.displayZoo();
 
 // Comparing zoos and displaying the largest zoo
         Zoo largestZoo = Zoo.comparerZoo(myZoo1, myZoo2);
         System.out.println("\n=== Comparaison des zoos ===");
-        System.out.println("Le zoo avec le plus d'animaux est : " + largestZoo.name);
+        System.out.println("Le zoo avec le plus d'animaux est : " + largestZoo.getName());
 
 
 

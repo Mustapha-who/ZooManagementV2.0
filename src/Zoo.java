@@ -1,17 +1,55 @@
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    final int nbrCages = 25;
-    int animalCount = 0;
+   private Animal[] animals;
+   private String name;
+   private String city;
+   private final int nbrCages = 25;
+   private int animalCount = 0;
 
     // Parameterized constructor
     public Zoo(String name, String city) {
-        this.name = name;
+        setName(name); // Utiliser le setter pour appliquer la vérification
         this.city = city;
         animals = new Animal[nbrCages];
     }
 
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Le nom du zoo ne doit pas être vide.");
+        }
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getAnimalCount() {
+        return animalCount;
+    }
+
+    public void setAnimalCount(int animalCount) {
+        this.animalCount = animalCount;
+    }
 
     // Méthode pour afficher le zoo
     public void displayZoo() {
@@ -29,7 +67,7 @@ public class Zoo {
     // Méthode pour chercher un animal selon son nom
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < animalCount; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].getName().equals(animal.getName())) {
                 return i;
             }
         }
@@ -41,7 +79,7 @@ public class Zoo {
     public boolean addAnimal(Animal animal) {
         // Vérifier si l'animal existe déjà
         if (searchAnimal(animal) != -1) {
-            System.out.println("L'animal: " + animal.name + " déjà existe dans le zoo.");
+            System.out.println("L'animal: " + animal.getName() + " déjà existe dans le zoo.");
             return false;
         }
 
@@ -52,7 +90,7 @@ public class Zoo {
         } else {
             animals[animalCount] = animal;
             animalCount++;
-            System.out.println("L'animal "+ animal.name +" a été ajouté au zoo.");
+            System.out.println("L'animal "+ animal.getName() +" a été ajouté au zoo.");
             return true;
         }
     }
