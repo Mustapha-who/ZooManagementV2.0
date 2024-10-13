@@ -41,21 +41,20 @@ public class Zoo {
     public boolean addAnimal(Animal animal) {
         // Vérifier si l'animal existe déjà
         if (searchAnimal(animal) != -1) {
-            System.out.println("L'animal:"+animal.name +" déjà existe dans le zoo.");
+            System.out.println("L'animal: " + animal.name + " déjà existe dans le zoo.");
             return false;
         }
 
         // Vérifier si le zoo est plein
-        if (animalCount < nbrCages) {
-            animals[animalCount] = animal;
-            animalCount++;
-            return true;
-        } else {
+        if (isZooFull()) {
             System.out.println("Le zoo est plein, impossible d'ajouter un autre animal.");
             return false;
+        } else {
+            animals[animalCount] = animal;
+            animalCount++;
+            System.out.println("L'animal "+ animal.name +" a été ajouté au zoo.");
+            return true;
         }
-
-
     }
 
 

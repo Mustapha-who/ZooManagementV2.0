@@ -3,7 +3,7 @@ public class Animal {
     String name;
     int age;
     boolean isMammal;
-
+    
     // Parameterized constructor
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
