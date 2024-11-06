@@ -1,12 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
 
-import tn.esprit.gestionzoo.entities.Dolphin;
-import tn.esprit.gestionzoo.entities.Penguin;
-import tn.esprit.gestionzoo.entities.Aquatic;
-import tn.esprit.gestionzoo.entities.Terrestrial;
 
 public class ZooManagement {
 
@@ -24,11 +19,18 @@ public class ZooManagement {
         Animal zebra = new Animal("Equidae", "Zebra", 3, false);
         Animal zebra1 = new Animal("Equidae", "Zebra", 3, false);
 
-
+        try {
+            myZoo.addAnimal(zebra);
+            System.out.println("Nombre d'animaux dans le zoo: " + myZoo.getAnimalCount());
+            myZoo.addAnimal(elephant);
+            System.out.println("Nombre d'animaux dans le zoo: " + myZoo.getAnimalCount());
+            myZoo.addAnimal(tiger);
+            System.out.println("Nombre d'animaux dans le zoo: " + myZoo.getAnimalCount());
+        } catch (ZooFullException e){
+            System.out.println(e.getMessage()); // Afficher le message de l'exception
+        }
         // Adding animals to the zoo
-        myZoo.addAnimal(zebra);
-        myZoo.addAnimal(elephant);
-        myZoo.addAnimal(tiger);
+
 
 // Searching for an animal
         int searchIndex = myZoo.searchAnimal(zebra1);
@@ -64,8 +66,13 @@ public class ZooManagement {
 
         System.out.println("\n=== Addition d'un nouveau animal ===");
         Animal test = new Animal("Equidae", "test", 3, false);
-        myZoo.addAnimal(test);
-        myZoo2.addAnimal(test);
+        try {
+            myZoo.addAnimal(test);
+            myZoo2.addAnimal(test);
+        } catch (ZooFullException e){
+            System.out.println(e.getMessage()); // Afficher le message de l'exception
+        }
+
         System.out.println("\n=== Le resultat apres l'addition un nouveau animal ===");
         myZoo.displayZoo();
 

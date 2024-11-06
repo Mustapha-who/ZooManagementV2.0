@@ -8,10 +8,9 @@ public class Animal {
 
     // Parameterized constructor
     public Animal(String family, String name, int age, boolean isMammal) {
-
         this.family = family;
-        this.name = name;
-        setAge(age); // Utiliser le setter pour appliquer la vérification
+        this.name = name;  // Ensure this is correctly assigned
+        this.age = age;
         this.isMammal = isMammal;
     }
 

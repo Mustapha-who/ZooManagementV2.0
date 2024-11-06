@@ -5,7 +5,7 @@ public class Zoo {
    private Animal[] animals;
    private String name;
    private String city;
-   private final int nbrCages = 25;
+   private final int nbrCages = 3;
    private int animalCount = 0;
 
    private int aquaticAnimalCount = 0;
@@ -83,24 +83,24 @@ public class Zoo {
 
 
     // Méthode pour ajouter un animal au zoo
-    public boolean addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) throws ZooFullException {
         // Vérifier si l'animal existe déjà
         if (searchAnimal(animal) != -1) {
             System.out.println("L'animal: " + animal.getName() + " déjà existe dans le zoo.");
-            return false;
+            return; // Exit the method early if the animal already exists
         }
 
-        // Vérifier si le zoo est plein
+        // Vérifier si le zoo est plein, et lancer l'exception si c'est le cas
         if (isZooFull()) {
-            System.out.println("Le zoo est plein, impossible d'ajouter un autre animal.");
-            return false;
-        } else {
-            animals[animalCount] = animal;
-            animalCount++;
-            System.out.println("L'animal "+ animal.getName() +" a été ajouté au zoo.");
-            return true;
+            throw new ZooFullException("Le zoo est plein, impossible d'ajouter un autre animal.");
         }
+
+        // Ajouter l'animal au zoo
+        animals[animalCount] = animal;
+        animalCount++;
+        System.out.println("L'animal " + animal.getName() + " a été ajouté au zoo.");
     }
+
 
 
     // Méthode pour supprimer un animal du zoo
