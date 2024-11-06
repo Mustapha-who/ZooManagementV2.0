@@ -83,22 +83,20 @@ public class Zoo {
 
 
     // Méthode pour ajouter un animal au zoo
-    public void addAnimal(Animal animal) throws ZooFullException {
-        // Vérifier si l'animal existe déjà
-        if (searchAnimal(animal) != -1) {
-            System.out.println("L'animal: " + animal.getName() + " déjà existe dans le zoo.");
-            return; // Exit the method early if the animal already exists
+    public void addAnimal(Animal animal) throws InvalidAgeException {
+        // Vérification de l'âge de l'animal
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("L'âge de l'animal ne peut pas être négatif : " + animal.getAge());
         }
 
-        // Vérifier si le zoo est plein, et lancer l'exception si c'est le cas
-        if (isZooFull()) {
-            throw new ZooFullException("Le zoo est plein, impossible d'ajouter un autre animal.");
+        // Ajouter l'animal si l'âge est valide
+        if (animalCount < animals.length) {
+            animals[animalCount] = animal;
+            animalCount++;
+            System.out.println("L'animal " + animal.getName() + " a été ajouté au zoo.");
+        } else {
+            System.out.println("Le zoo est plein, impossible d'ajouter un autre animal.");
         }
-
-        // Ajouter l'animal au zoo
-        animals[animalCount] = animal;
-        animalCount++;
-        System.out.println("L'animal " + animal.getName() + " a été ajouté au zoo.");
     }
 
 

@@ -8,7 +8,7 @@ public class ZooManagement {
 
     public static void main(String[] args) {
         // Creating an animal (lion)
-        Animal lion = new Animal("Felidae", "Lion", 5, true);
+        Animal lion = new Animal("Felidae", "Lion", -5, true);
 
 
         // Creating a zoo
@@ -26,10 +26,9 @@ public class ZooManagement {
             System.out.println("Nombre d'animaux dans le zoo: " + myZoo.getAnimalCount());
             myZoo.addAnimal(tiger);
             System.out.println("Nombre d'animaux dans le zoo: " + myZoo.getAnimalCount());
-        } catch (ZooFullException e){
+        } catch (InvalidAgeException  e){
             System.out.println(e.getMessage()); // Afficher le message de l'exception
         }
-        // Adding animals to the zoo
 
 
 // Searching for an animal
@@ -69,7 +68,7 @@ public class ZooManagement {
         try {
             myZoo.addAnimal(test);
             myZoo2.addAnimal(test);
-        } catch (ZooFullException e){
+        } catch (InvalidAgeException  e){
             System.out.println(e.getMessage()); // Afficher le message de l'exception
         }
 
