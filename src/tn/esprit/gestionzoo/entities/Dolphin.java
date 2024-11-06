@@ -27,4 +27,8 @@ public class Dolphin extends Aquatic{
     }
 
 
+    @Override
+    public void eatMeat(Aquatic meat) {
+
+    }
 }

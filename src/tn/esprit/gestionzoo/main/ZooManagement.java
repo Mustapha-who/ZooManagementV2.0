@@ -82,12 +82,12 @@ public class ZooManagement {
 
         System.out.println("===================== Partie 2 =================================\n");
 
-        Terrestrial terrestrialAnimal = new Terrestrial("Mammifère", "Lion", 8, true, 4);
+
         Dolphin dolphin = new Dolphin("Cetacea", "Dauphin", 10, true, "Océan", 25.5f);
         Penguin penguin = new Penguin("Spheniscidae", "Pingouin", 5, false, "Antarctique", 30.0f);
 
 
-        System.out.println(terrestrialAnimal);
+
         System.out.println(dolphin);
         System.out.println(penguin);
 
@@ -99,7 +99,39 @@ public class ZooManagement {
         myZoo.displayAllSwimming();
 
 
+
+        System.out.println("===================== Partie I35-I38 =================================\n");
+        // Creating an Aquatic animal (Penguin)
+        Penguin penguin1 = new Penguin("Spheniscidae", "Penguin", 5, false, "Antarctic", 50.0f);
+
+        // Displaying penguin info
+        System.out.println(penguin1.toString());
+
+        // Testing swim method
+        penguin.swim();
+
+        // Creating a Terrestrial animal
+        Terrestrial lion1 = new Terrestrial();
+        lion1.setNbrLegs(4);
+
+        // Displaying lion info
+        System.out.println("Terrestrial Lion: " + lion1.toString());
+
+        // Testing eating methods with Food enum
+        lion1.eatMeat(Food.MEAT);        // Lion eats meat
+        lion1.eatPlant(Food.PLANT);      // Lion eats plants
+        lion1.eatPlantAndMeat(Food.BOTH); // Lion eats both meat and plants
+
+        // Creating and testing another Terrestrial animal (e.g., Elephant)
+        Terrestrial elephant1 = new Terrestrial();
+        elephant1.setNbrLegs(4);
+
+        System.out.println("Terrestrial Elephant: " + elephant1.toString());
+        elephant1.eatMeat(Food.MEAT);        // Elephant eats meat
+        elephant1.eatPlant(Food.PLANT);      // Elephant eats plants
+        elephant1.eatPlantAndMeat(Food.BOTH); // Elephant eats both meat and plants
     }
+
 }
 
 

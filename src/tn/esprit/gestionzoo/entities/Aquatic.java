@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
-public abstract class Aquatic extends Animal {
+public abstract class Aquatic extends Animal implements Carnivore<Aquatic> {
   private  String habitat; // The habitat where the aquatic animal lives
 
     // Constructeur paramétré
@@ -22,7 +22,8 @@ public abstract class Aquatic extends Animal {
     }
 
     // abstract method you can define and use it in subclasses
-    public abstract void swim();
+    public  abstract void swim();
+
 
     // Checks if two Aquatic animals are equal based on their name, age, and habitat
     @Override

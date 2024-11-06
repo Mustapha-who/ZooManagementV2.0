@@ -1,12 +1,32 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Terrestrial extends Animal{
+public class Terrestrial implements Omnivore<Food> {
     private  int nbrLegs; // Number of legs of the terrestrial animal
 
-    // Constructeur paramétré
-    public Terrestrial(String family, String name, int age, boolean isMammal, int nbrLegs) {
-        super(family, name, age, isMammal); // Appeler le constructeur de Animal
-        this.nbrLegs = nbrLegs;
+    public void eatMeat(Food food) {
+        if (food == Food.MEAT || food == Food.BOTH) {
+            System.out.println("L'animal terrestre mange de la viande.");
+        } else {
+            System.out.println("L'animal terrestre ne mange pas de viande.");
+        }
+    }
+
+    @Override
+    public void eatPlant(Food food) {
+        if (food == Food.PLANT || food == Food.BOTH) {
+            System.out.println("L'animal terrestre mange des plantes.");
+        } else {
+            System.out.println("L'animal terrestre ne mange pas de plantes.");
+        }
+    }
+
+    @Override
+    public void eatPlantAndMeat(Food food) {
+        if (food == Food.BOTH) {
+            System.out.println("L'animal terrestre mange à la fois de la viande et des plantes.");
+        } else {
+            System.out.println("L'animal terrestre ne mange pas les deux.");
+        }
     }
 
     public int getNbrLegs() {
