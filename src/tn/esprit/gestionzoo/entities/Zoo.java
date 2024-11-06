@@ -8,6 +8,10 @@ public class Zoo {
    private final int nbrCages = 25;
    private int animalCount = 0;
 
+   private int aquaticAnimalCount = 0;
+   private Animal[] aquaticAnimals = new Animal[10];
+
+
     // Parameterized constructor
     public Zoo(String name, String city) {
         setName(name); // Utiliser le setter pour appliquer la vérification
@@ -131,6 +135,66 @@ public class Zoo {
             return z2; // Retourner z2 si z2 a plus d'animaux ou s'ils sont égaux
         }
     }
+
+    //This method adds an aquatic animal if there's space; otherwise, it prints an error message.
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (aquaticAnimalCount < aquaticAnimals.length) {
+            aquaticAnimals[aquaticAnimalCount] = aquatic;
+            aquaticAnimalCount++;
+            System.out.println("Animaux aquatiques ajoutés avec succès.");
+        } else {
+            System.out.println("Le tableau d'animaux aquatiques est plein.");
+        }
+    }
+
+    //Show all the Aquatic animals that are swimming
+    public void displayAllSwimming() {
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            aquaticAnimals[i].swim();
+        }
+    }
+
+
+    // Returns the maximum swimming depth of penguins in the zoo, or -1 if no penguins are found.
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = -1; // Initial value indicating no penguin found
+
+        // Iterate through all aquatic animals
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimals[i]; // Cast to Penguin to access its specific methods
+                if (penguin.getSwimmingDepth() > maxDepth) {
+                    maxDepth = penguin.getSwimmingDepth(); // Update maxDepth if this penguin swims deeper
+                }
+            }
+        }
+
+        return maxDepth; // Return the maximum swimming depth, or -1 if no penguin found
+    }
+
+
+    // This method displays the number of dolphins and penguins in the zoo.
+    public void displayNumberOfAquaticsByType() {
+        int dolphinCount = 0;
+        int penguinCount = 0;
+
+        // Iterate through all aquatic animals
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin) {
+                dolphinCount++; // Increment the count if it's a Dolphin
+            } else if (aquaticAnimals[i] instanceof Penguin) {
+                penguinCount++; // Increment the count if it's a Penguin
+            }
+        }
+
+        // Display the counts of each type of aquatic animal
+        System.out.println("Number of Dolphins: " + dolphinCount);
+        System.out.println("Number of Penguins: " + penguinCount);
+    }
+
+
+
+
 
 
 

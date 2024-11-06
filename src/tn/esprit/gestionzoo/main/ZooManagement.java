@@ -76,20 +76,21 @@ public class ZooManagement {
 
         System.out.println("===================== Partie 2 =================================\n");
 
-        Aquatic aquaticAnimal = new Aquatic("Cetacea", "Baleine", 15, true, "Océan");
         Terrestrial terrestrialAnimal = new Terrestrial("Mammifère", "Lion", 8, true, 4);
         Dolphin dolphin = new Dolphin("Cetacea", "Dauphin", 10, true, "Océan", 25.5f);
         Penguin penguin = new Penguin("Spheniscidae", "Pingouin", 5, false, "Antarctique", 30.0f);
 
 
-        System.out.println(aquaticAnimal);
         System.out.println(terrestrialAnimal);
         System.out.println(dolphin);
         System.out.println(penguin);
 
-        aquaticAnimal.swim();
         dolphin.swim();
         penguin.swim();
+
+        myZoo.addAquaticAnimal(dolphin);
+        myZoo.addAquaticAnimal(penguin);
+        myZoo.displayAllSwimming();
 
 
     }

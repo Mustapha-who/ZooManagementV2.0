@@ -55,4 +55,6 @@ public class Animal {
         return "Animal Name: " + name + ", Family: " + family + ", Age: " + age + ", Mammal: " + isMammal;
     }
 
+    public void swim() {
+    }
 }

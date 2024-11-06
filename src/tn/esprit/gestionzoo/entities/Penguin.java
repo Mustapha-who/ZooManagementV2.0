@@ -20,4 +20,11 @@ public class Penguin extends Aquatic{
     public String toString() {
         return "Penguin{" + "swimmingDepth=" + swimmingDepth + "} " + super.toString();
     }
+    public void swim() {
+        System.out.println("The penguin swims gracefully in the water!");
+    }
+
+
+
+
 }

@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Aquatic extends Animal {
+public abstract class Aquatic extends Animal {
   private  String habitat; // The habitat where the aquatic animal lives
 
     // Constructeur paramétré
@@ -17,14 +17,35 @@ public class Aquatic extends Animal {
         this.habitat = habitat;
     }
 
-
-    // Swim method for Aquatic animals
-    public void swim() {
-        System.out.println("This aquatic animal is swimming.");
-    }
-
     public String toString() {
         return "Aquatic{" + "habitat='" + habitat + '\'' + "} " + super.toString();
     }
+
+    // abstract method you can define and use it in subclasses
+    public abstract void swim();
+
+    // Checks if two Aquatic animals are equal based on their name, age, and habitat
+    @Override
+    public boolean equals(Object obj) {
+        // Check if the two objects are the same reference
+        if (this == obj) {
+            return true;
+        }
+
+        // Check if the object is an instance of Aquatic
+        if (obj == null || !(obj instanceof Aquatic)) {
+            return false;
+        }
+
+        // Cast the object to Aquatic
+        Aquatic other = (Aquatic) obj;
+
+        // Compare the name, age, and habitat
+        return this.getName().equals(other.getName()) &&
+                this.getAge() == other.getAge() &&
+                this.getHabitat().equals(other.getHabitat());
+    }
+
+
 
 }
